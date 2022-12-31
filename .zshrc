@@ -25,7 +25,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
-bindkey -v
+# bindkey -v
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
