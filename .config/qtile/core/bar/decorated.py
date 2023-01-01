@@ -1,3 +1,5 @@
+import os
+
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
@@ -236,7 +238,6 @@ def keyboard_layout(bg: str, fg: str) -> list:
     modify(
       TextBox,
       **base(bg, fg),
-      **decoration('left'),
       **iconFont(),
       offset = 2,
       text = ' ',
@@ -252,6 +253,22 @@ def keyboard_layout(bg: str, fg: str) -> list:
         'ar': 'AR'
       },
       configured_keyboards = ["us", "ar"] 
+    ),
+  ]
+
+def layout_name(bg: str, fg: str) -> list:
+  return [
+    widget.CurrentLayoutIcon(
+      **base(bg, fg),
+      **decoration('left'),
+      custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+      padding = 0,
+      scale = 0.7
+    ),
+    widget.CurrentLayout(
+      **base(bg, fg),
+      **powerline('arrow_right'),
+      padding = 5
     ),
   ]
 
@@ -271,6 +288,7 @@ widgets = [
 
   *systray(),
   sep(color['black']),
+  *layout_name(color['yellow'], color['bg']),
   *keyboard_layout(color['green'], color['bg']),
   *ram(color['yellow'], color['bg']),
   *things_disk(color['green'], color['bg']),
