@@ -1,0 +1,4 @@
+#!/bin/sh 
+
+pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1
+# pactl get-sink-volume @DEFAULT_SINK@ | /home/mohammad/.local/bin/volume.py

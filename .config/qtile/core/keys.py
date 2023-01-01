@@ -64,6 +64,9 @@ for key in [
   # Web Browser
   ([mod], 'b', lazy.spawn(config['browser'])),
 
+  # Make screen on standby
+  ([mod, 'shift'], 's', lazy.spawn('xset dpms force standby')),
+
   # Screenshot Tool
   ([ ], 'Print', lazy.spawn('scrot')),
 

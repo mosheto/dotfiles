@@ -2,7 +2,7 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.bar.utils import base, decoration, iconFont, powerline
-from extras import Clock, GroupBox, modify, TextBox, widget
+from extras import Clock, GroupBox, modify, TextBox, widget, Volume
 from utils import color
 
 tags = [
@@ -66,10 +66,17 @@ def volume(bg: str, fg: str) -> list:
       text = '',
       x = 4,
     ),
-    widget.PulseVolume(
+    modify(
+      Volume,
       **base(bg, fg),
       **powerline('arrow_right'),
-      padding = 5
+      commands = {
+        'decrease': 'pactl set-sink-volume @DEFAULT_SINK@ -5%',
+        'increase': 'pactl set-sink-volume @DEFAULT_SINK@ +5%',
+        'get': '~/.local/bin/volume',
+        'mute': 'pactl set-sink-mute @DEFAULT_SINK@ toggle',
+      },
+      update_interval = 0.1,
     ),
   ]
 
@@ -109,10 +116,9 @@ def track_info(bg: str, fg: str) -> list:
       **base(bg, fg),
       **decoration('right'),
       objname = 'org.mpris.MediaPlayer2.spotify',
-      format = '{xesam:title} - {xesam:artist}'
+      display_metadata = ["xesam:title", "xesam:artist"]
     ),
   ]
-
 
 def window_name(bg: str, fg: str) -> object:
   return widget.WindowName(
