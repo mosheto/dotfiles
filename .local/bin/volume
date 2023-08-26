@@ -1,4 +1,9 @@
 #!/bin/sh 
 
-pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1
+if pactl get-sink-mute @DEFAULT_SINK@ | grep "no" &> /dev/null; then
+  pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]*%' | head -1;
+else
+  echo -n "M";
+fi
+
 # pactl get-sink-volume @DEFAULT_SINK@ | /home/mohammad/.local/bin/volume.py

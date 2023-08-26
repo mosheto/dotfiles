@@ -250,9 +250,9 @@ def keyboard_layout(bg: str, fg: str) -> list:
       padding = 5,
       display_map = {
         'us': 'EN',
-        'ar': 'AR'
+        'ara': 'AR'
       },
-      configured_keyboards = ["us", "ar"] 
+      configured_keyboards = ["us", "ara"] 
     ),
   ]
 
