@@ -41,7 +41,7 @@ for key in [
   ([mod], 'f', lazy.function(float_to_front)),
 
   # Toggle between layouts
-  ([mod], 'Tab', lazy.next_layout()),
+  # ([mod], 'Tab', lazy.next_layout()),
 
   # Qtile management
   ([mod, 'control'], 'r', lazy.reload_config()),

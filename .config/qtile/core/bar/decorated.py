@@ -160,6 +160,7 @@ def ram(bg: str, fg: str) -> list:
     widget.Memory(
       **base(bg, fg),
       **powerline('arrow_right'),
+      measure_mem = "G",
       format = '{MemUsed: .0f}{mm} ',
       padding = -1,
     ),
@@ -180,6 +181,26 @@ def root_disk(bg: str, fg: str) -> list:
       format = 'root: {uf} GB  ',
       padding = 0,
       partition = '/',
+      visible_on_warn = False,
+      warn_color = fg,
+    ),
+  ]
+
+def extra_things_disk(bg: str, fg: str) -> list:
+  return [
+    TextBox(
+      **base(bg, fg),
+      **iconFont(),
+      offset = -1,
+      text = '',
+      x = -5,
+    ),
+    widget.DF(
+      **base(bg, fg),
+      **powerline('arrow_right'),
+      format = 'extra-things: {uf} GB  ',
+      padding = 0,
+      partition = '/mnt/ExtraThings',
       visible_on_warn = False,
       warn_color = fg,
     ),
@@ -291,6 +312,7 @@ widgets = [
   *layout_name(color['yellow'], color['bg']),
   *keyboard_layout(color['green'], color['bg']),
   *ram(color['yellow'], color['bg']),
+  *extra_things_disk(color['cyan'], color['bg']),
   *things_disk(color['green'], color['bg']),
   *root_disk(color['cyan'], color['bg']),
   sep(color['black']),

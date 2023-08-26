@@ -27,4 +27,6 @@ for i in groups:
 
     # mod1 + shift + letter of group = move focused window to group
     Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)),
+
+    Key([mod], 'Tab', lazy.screen.toggle_group()),
   ])
