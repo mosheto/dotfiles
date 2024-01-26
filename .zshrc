@@ -24,8 +24,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # export MANPAGER="nvim -c 'set ft=man' -"
 
 ### SET VI MODE ###
-# Comment this line out to enable default emacs-like bindings
 # bindkey -v
+
+### SET EMACS MODE ###
+bindkey -e
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -273,3 +275,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Activate mise which is a version manager for Ruby and others.
+# eval "$(mise activate zsh)"
+
+. /opt/asdf-vm/asdf.sh
