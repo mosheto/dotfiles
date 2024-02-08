@@ -1,17 +1,11 @@
-from libqtile.config import Key
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+from libqtile.config import Key
+from core.utils import float_to_front
 
-from extras import float_to_front
-from utils import config
+browser = 'google-chrome-stable'
+terminal, mod, alt = 'alacritty', 'mod4', 'mod1'
 
-keys, mod, alt = [ ], 'mod4', 'mod1'
-terminal = config['terminal'].copy()
-
-if not terminal['main']:
-  terminal['main'] = guess_terminal()
-
-for key in [
+_keys = [
   # Switch between windows
   ([mod], 'h', lazy.layout.left()),
   ([mod], 'l', lazy.layout.right()),
@@ -52,17 +46,17 @@ for key in [
   ([mod, "shift"], "c", lazy.window.kill()),
 
   # Terminal
-  ([mod], 'Return', lazy.spawn(terminal['main'])),
+  ([mod], 'Return', lazy.spawn(terminal)),
 
   # Rofi Launcher
   ([mod, 'shift'], 'p', lazy.spawn("rofi -show power")),
   ([mod, 'shift'], 'Return', lazy.spawn("rofi -show drun")),
 
   # Keyboard Layout
-  ([mod], 'space', lazy.widget["keyboardlayout"].next_keyboard()),
+  # ([mod], 'space', lazy.widget["keyboardlayout"].next_keyboard()),
 
   # Web Browser
-  ([mod], 'b', lazy.spawn(config['browser'])),
+  ([mod], 'b', lazy.spawn(browser)),
 
   # Make screen on standby
   ([mod, 'shift'], 's', lazy.spawn('xset dpms force standby')),
@@ -82,4 +76,7 @@ for key in [
   ([ ], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
   ([ ], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
   ([ ], 'XF86AudioNext', lazy.spawn('playerctl next')),
-]: keys.append(Key(*key)) # type: ignore
+]
+
+def createGlobalKeys():
+    return list(map(lambda key: Key(*key), _keys))

@@ -1,21 +1,20 @@
 import os
-import asyncio
 import subprocess
 from libqtile import hook
 
-from core.bar import bar
+# from core.bar import bar
 
-margin = sum(bar.margin) if bar else -1
+# margin = sum(bar.margin) if bar else -1
 
-@hook.subscribe.startup
-def startup():
-  if margin == 0:
-    bar.window.window.set_property(
-      name = 'WM_NAME',
-      value = 'QTILE_BAR',
-      type = 'STRING',
-      format = 8,
-    )
+# @hook.subscribe.startup
+# def startup():
+#   if margin == 0:
+#     bar.window.window.set_property(
+#       name = 'WM_NAME',
+#       value = 'QTILE_BAR',
+#       type = 'STRING',
+#       format = 8,
+#     )
 
 @hook.subscribe.startup_once
 def start_once():

@@ -1,4 +1,4 @@
-{
+colors = {
   "bg":      "#1e1e2e",
   "fg":      "#cdd6f4",
   "black":   "#585b70",

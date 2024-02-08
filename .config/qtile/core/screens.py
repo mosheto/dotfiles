@@ -1,10 +1,10 @@
 from libqtile.config import Screen
 
-from core.bar import bar
-from utils import config
+from core.bar import mainBar
 
-screens = [
-  Screen(
-    top = bar,
-  )
-]
+def createScreens():
+  return [
+    Screen(
+      top = mainBar,
+    )
+  ]
