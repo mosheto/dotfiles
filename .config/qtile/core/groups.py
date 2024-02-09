@@ -10,6 +10,9 @@ _groups = (
   ('4', '4', 'monadtall', [ ]),
   ('5', '5', 'monadtall', [ ]),
   ('6', '6', 'monadtall', [ ]),
+  ('7', '7', 'monadtall', [ ]),
+  ('8', '8', 'monadtall', [ ]),
+  ('9', '9', 'monadtall', [ ]),
 )
 
 def createGroups():

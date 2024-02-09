@@ -53,7 +53,7 @@ _keys = [
   ([mod, 'shift'], 'Return', lazy.spawn("rofi -show drun")),
 
   # Keyboard Layout
-  # ([mod], 'space', lazy.widget["keyboardlayout"].next_keyboard()),
+  ([mod], 'space', lazy.widget["keyboardlayout"].next_keyboard()),
 
   # Web Browser
   ([mod], 'b', lazy.spawn(browser)),

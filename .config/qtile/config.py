@@ -50,8 +50,8 @@ def start_once():
 #################
 
 widget_defaults = dict(
-    font="Roboto Mono",
-    fontsize=12,
+    font="SauceCodePro Nerd Font Medium",
+    fontsize=10,
     padding=5,
 )
 
