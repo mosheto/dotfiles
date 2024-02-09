@@ -269,8 +269,8 @@ fi
 # Setting up oh-my-posh prompt.
 eval "$(oh-my-posh init zsh --config /home/mohammad/.poshthemes/blue-owl.omp.json)"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -280,3 +280,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # eval "$(mise activate zsh)"
 
 . /opt/asdf-vm/asdf.sh
+
+PATH="$PATH:$HOME/.cargo/bin"
