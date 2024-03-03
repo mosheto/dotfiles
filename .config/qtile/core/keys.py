@@ -63,6 +63,7 @@ _keys = [
 
   # Screenshot Tool
   ([ ], 'Print', lazy.spawn('scrot')),
+  ([mod], 'Print', lazy.spawn('scrot -s')),
 
   # Calculator
   ([ ], 'XF86Calculator', lazy.spawn('qalculate-gtk')),

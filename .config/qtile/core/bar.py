@@ -159,9 +159,8 @@ def logo(bg: str, fg: str) -> widget.TextBox:
     **decoration(),
     **iconFont(),
     mouse_callbacks = { 'Button1': lazy.restart() },
-    offset = 4,
-    padding = 17,
-    text = '',
+    padding = 14,
+    text = 'M',
   )
 
 def groups(bg: str) -> extras_widget.GroupBox2:

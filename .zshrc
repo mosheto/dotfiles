@@ -263,6 +263,7 @@ fi
 # Setting up oh-my-posh prompt.
 eval "$(oh-my-posh init zsh --config /home/mohammad/.poshthemes/blue-owl.omp.json)"
 
-. /opt/asdf-vm/asdf.sh
+# . /opt/asdf-vm/asdf.sh
+eval "$(rbenv init - zsh)"
 
 export PATH="$PATH:$HOME/.cargo/bin"
