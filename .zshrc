@@ -267,3 +267,4 @@ eval "$(oh-my-posh init zsh --config /home/mohammad/.poshthemes/blue-owl.omp.jso
 eval "$(rbenv init - zsh)"
 
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
