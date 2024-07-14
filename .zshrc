@@ -161,11 +161,11 @@ IFS=$SAVEIFS
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-alias ls='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -a | egrep "^\."'
+# alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+# alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+# alias ll='exa -l --color=always --group-directories-first'  # long format
+# alias lt='exa -aT --color=always --group-directories-first' # tree listing
+# alias l.='exa -a | egrep "^\."'
 
 # pacman and yay
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
@@ -239,7 +239,7 @@ alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
 alias yta-opus="youtube-dl --extract-audio --audio-format opus "
 alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+alias ytv-best="yt-dlp -f bestvideo+bestaudio "
 
 # bare git repo alias for dotfiles
 alias dotfiles="/usr/bin/env git --git-dir=$HOME/Projects/dotfiles/ --work-tree=$HOME"
@@ -268,3 +268,11 @@ eval "$(rbenv init - zsh)"
 
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
+
+# pnpm
+export PNPM_HOME="/home/mohammad/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
